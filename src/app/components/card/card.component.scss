@@ -1,0 +1,179 @@
+.card {
+  width: 320px;
+  height: 480px;
+
+  border: 4px solid #1698d9;
+  border-radius: 12px;
+  background-color: #f2f2f2;
+  position: relative;
+  overflow: hidden;
+  clip-path: polygon(15% 0, 100% 0, 100% 50%, 100% 100%, 0 100%, 0 10%);
+  cursor: pointer;
+
+  .corner-line {
+    position: absolute;
+    width: 75px;
+    border: 4px solid #1698d9;
+    transform: rotate(-45deg);
+    top: 15px;
+    left: -17px;
+  }
+
+  .card-description {
+    margin-left: 50px;
+    margin-top: 20px;
+
+    .title {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 19px;
+      color: #666666;
+    }
+
+    .hovered-title {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 19px;
+      color: #e62e7a;
+    }
+
+    .food-name {
+      margin-top: 5px;
+      width: 211px;
+      font-weight: 700;
+      font-size: 48px;
+      line-height: 56px;
+      color: #000000;
+    }
+
+    .disabled-card-text-color {
+      color: #b3b3b3;
+    }
+
+    .food-name-taste {
+      font-style: normal;
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 28px;
+      color: #000000;
+    }
+
+    .food-portion {
+      margin-top: 15px;
+      width: 130px;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 16px;
+      color: #666666;
+    }
+  }
+
+  .background-image {
+    position: absolute;
+    top: 205px;
+    left: -25px;
+  }
+
+  .weight-quantity {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #1698d9;
+  }
+
+  .quantity {
+    padding-top: 22px;
+    text-align: center;
+    font-weight: 400;
+    font-size: 42px;
+    line-height: 22px;
+    color: #ffffff;
+  }
+
+  .kg {
+    padding-top: 7px;
+    text-align: center;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 22px;
+  }
+
+  .corner-line-is-active {
+    border: 4px solid #d91667;
+    transition: 300ms;
+  }
+
+  .corner-line-is-disabled {
+    border: 4px solid #b3b3b3;
+  }
+
+  .weight-quantity-is-active {
+    background-color: #d91667;
+    transition: 300ms;
+  }
+
+  .weight-quantity-is-disabled {
+    background-color: #b3b3b3;
+  }
+}
+
+.card-is-active {
+  border: 4px solid #d91667;
+  transition: 300ms;
+}
+
+.card-is-disabled {
+  border: 4px solid #b3b3b3;
+}
+
+.card-footer-text {
+  height: 20px;
+  margin-top: 14px;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 15px;
+  text-align: center;
+  color: #ffffff;
+
+  .buy-food {
+    color: #1698d9;
+    cursor: pointer;
+    text-decoration: none;
+    border-bottom: 2px dashed #1698d9;
+  }
+
+  .blue-dot {
+    color: #1698d9;
+  }
+}
+
+.card-footer-text-is-disabled {
+  height: 20px;
+  margin-top: 14px;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 15px;
+  text-align: center;
+  color: #ffff66;
+}
+
+.card-is-disabled-with-background {
+  display: inline-block;
+  position: relative;
+  line-height: 0;
+}
+.card-is-disabled-with-background:after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: transparent;
+  background-image: linear-gradient(#b3b3b3, #b3b3b3);
+  opacity: 0.5;
+}

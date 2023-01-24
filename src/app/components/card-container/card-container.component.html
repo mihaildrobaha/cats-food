@@ -1,0 +1,9 @@
+<div class="wrapper">
+  <h1 class="card-header">Ты сегодня покормил кота?</h1>
+  <div class="card-container">
+    <app-card
+      *ngFor="let product of products | async"
+      [product]="product"
+    ></app-card>
+  </div>
+</div>

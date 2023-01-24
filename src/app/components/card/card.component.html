@@ -1,0 +1,107 @@
+<div
+  *ngIf="product"
+  (mouseenter)="mouseenter()"
+  (mouseleave)="mouseleave()"
+  class="card"
+  [ngClass]="{
+    'card-is-active': product.isSelected,
+    'card-is-disabled': product.isDisabled,
+    'card-is-disabled-with-background': product.isDisabled
+  }"
+  (click)="selectCard()"
+>
+  <div
+    class="corner-line"
+    [ngClass]="{
+      'corner-line-is-active': product.isSelected,
+      'corner-line-is-disabled': product.isDisabled
+    }"
+  ></div>
+
+  <div *ngIf="product.gift" class="card-description">
+    <h4
+      *ngIf="
+        !product.isHovered ||
+          (product.isHovered && !product.isSelected && !product.isDisabled);
+        else hovered
+      "
+      class="title"
+      [ngClass]="{
+        'disabled-card-text-color': product.isDisabled
+      }"
+    >
+      {{ product.title }}
+    </h4>
+
+    <ng-template #hovered>
+      <h4
+        *ngIf="product.isHovered && product.isSelected && !product.isDisabled"
+        class="hovered-title"
+      >
+        {{ product.hoveredTitle }}
+      </h4>
+    </ng-template>
+
+    <h2
+      class="food-name"
+      [ngClass]="{
+        'disabled-card-text-color': product.isDisabled
+      }"
+    >
+      {{ product.name }}
+      <span
+        ><h2
+          [ngStyle]="{ color: product.isDisabled ? '#b3b3b3' : '000000' }"
+          class="food-name-taste"
+        >
+          {{ product.taste }}
+        </h2></span
+      >
+    </h2>
+    <h3
+      class="food-portion"
+      [ngStyle]="{ color: product.isDisabled ? '#b3b3b3' : '000000' }"
+    >
+      {{ product.portion | portionDeclination }} <br />
+      {{ product.gift | declination }} в подарок
+      <span *ngIf="product && product.gift">{{
+        product.gift >= 5 ? "заказчик доволен" : null
+      }}</span>
+    </h3>
+  </div>
+
+  <img class="background-image" src="/assets/pics/PhotoCat.png" alt="Cat" />
+
+  <div
+    class="weight-quantity"
+    [ngClass]="{
+      'weight-quantity-is-active': product.isSelected,
+      'weight-quantity-is-disabled': product.isDisabled
+    }"
+  >
+    <h2 class="quantity">
+      {{ product.weight }}
+      <span>
+        <h2 class="kg">{{ product.unit }}</h2></span
+      >
+    </h2>
+  </div>
+</div>
+<div
+  *ngIf="product && !product.isSelected && !product.isDisabled"
+  class="card-footer-text"
+>
+  {{ product.description }}
+  <span class="buy-food" (click)="selectCard()">купи</span
+  ><span class="blue-dot">.</span>
+</div>
+<div
+  *ngIf="product && product.isSelected && !product.isDisabled"
+  class="card-footer-text"
+>
+  {{ product.descriptionIsSelected }}
+</div>
+
+<div *ngIf="product && product.isDisabled" class="card-footer-text-is-disabled">
+  {{ product.descriptionIsDisabled }}
+</div>
