@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
-import { IProduct } from 'src/app/interfaces/product-interface';
-import { ApiService } from 'src/app/services/api.service';
+import { IProduct } from '../../../../src/app/interfaces/product-interface';
+import { ApiService } from '../../../../src/app/services/api.service';
 
 @Component({
   selector: 'app-card-container',
